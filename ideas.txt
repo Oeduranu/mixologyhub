@@ -1,0 +1,17 @@
+holidays all across the world - https://www.abstractapi.com/api/holidays-api - https://www.calendarindex.com/
+
+
+on this day happened x wikipedia - https://byabbe.se/on-this-day/#/default/get__month___day__events_json
+
+
+cryptos with prices, etc - https://apiv2.bitcoinaverage.com/  ¿pay to use?
+
+
+Meals - https://www.themealdb.com/api.php - with cocktails 
+
+
+
+
+---- 
+Boton en el modal que abra en otro sitio web
+Corregir EJS en las busquedas

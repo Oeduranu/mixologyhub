@@ -1,0 +1,340 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* This is the gradient background */
+body {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(315deg, rgba(183, 239, 197, 1) 3%, rgba(146, 230, 167, 1) 38%, rgba(110, 222, 138, 1) 68%, rgba(74, 214, 109, 1) 98%);
+  animation: gradient 35s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 0%;
+  }
+  50% {
+      background-position: 100% 100%;
+  }
+  100% {
+      background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+      transform: translateX(1);
+  }
+
+  25% {
+      transform: translateX(-25%);
+  }
+
+  50% {
+      transform: translateX(-50%);
+  }
+
+  75% {
+      transform: translateX(-25%);
+  }
+
+  100% {
+      transform: translateX(1);
+  }
+}
+/* End of the gradient background */
+
+
+
+
+
+
+
+
+.container {
+  max-width: 60%;
+  margin: 50px auto 20px auto; /* Here we have 50 top, auto left, 20 bottom, auto right*/
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.container h1{
+  text-align: center;
+  padding: 20px;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+
+#myForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #edede9;
+  border-radius: 10px;
+  position: relative;
+  height: 55px;
+  overflow: hidden;
+}
+
+#myForm input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 20px;
+}
+
+#myForm button img {
+  width: 25px;
+}
+
+#myForm button {
+  padding: 10px 12px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search-button{
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search-button:hover{
+  background-color: aliceblue;
+}
+
+
+.slider{
+  /* position: absolute; */
+  bottom: 0;
+ /* left: 30vh; */
+  animation: slider 6s linear infinite;
+}
+
+.slider div {
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.slider img{
+  height: 35px;
+  background-size: cover;
+  border: 0;
+  outline: 0;
+}
+
+@keyframes slider {
+  0% { transform: translateY(-55px); }
+  5% { transform: translateY(0px); }
+  30% { transform: translateY(0px); }
+  35% { transform: translateY(55px); }
+  65% { transform: translateY(55px); }
+  75% { transform: translateY(110px); }
+  100% { transform: translateY(110px); }
+}
+
+
+
+
+.card {
+  width: calc(33.33% - 3px); /* Adjust width of each card */
+  margin-bottom: 10px; /* Add margin between cards */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: calc(33.33% - 3px); /* Adjust width of each card for medium and larger screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: calc(100%); /* Adjust width of each card for small screens */
+    margin: 0; /* Set margin to zero on small screens */
+  }
+}
+
+
+
+
+
+.card img {
+  border-radius: 5px;
+}
+
+.backCards {
+  background: transparent;
+  box-shadow: none;
+  display: flex; /* Use Flexbox */
+  flex-wrap: wrap; /* Allow cards to wrap if needed */
+  justify-content: space-between; /* Distribute space between cards */
+}
+
+.containerCards{
+  background: transparent;
+  box-shadow: none;
+}
+
+
+/* Styles for modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow: auto;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;  /* 5% to the top and auto to the sides so its centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Align items vertically */
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto; /* Push the close button to the right */
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.txt-random{
+  font-size:150%;
+  font-weight: 500;
+}
+
+.modal-content img{
+  border-radius: 5px;
+  display: block; /* Make it block element so it gets the full line and respects the margins*/
+  margin: 0 auto; /* Center horizontally */
+}
+
+.bold-text{
+  font-weight: bold;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+
+.custom-container {
+  max-width: 60%; /* Set the maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Adjust container width for smaller screens */
+@media (max-width: 576px) {
+  .custom-container {
+      max-width: 80%; /* Set a narrower maximum width for extra small screens */
+  }
+}
+
+
+/* This class is only for the top container with the search engine, if I use the other I'd have no margins or padding */
+.custom-container-top {
+  max-width: 60%;
+  margin: 50px auto 20px auto; /* Here we have 50 top, auto left, 20 bottom, auto right*/
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust container width for smaller screens */
+@media (max-width: 576px) {
+  .custom-container-top {
+      max-width: 80%; /* Set a narrower maximum width for extra small screens */
+  }
+}
+
+/* For the logo in the search section */
+#logo-container {
+  max-width: 350px; /* Adjust the maximum width as needed */
+  width: 100%; /* Ensure the container takes full width */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Make the logo responsive */
+#logo {
+  max-width: 100%; /* Set maximum width to 100% */
+  height: auto; /* Maintain aspect ratio */
+}

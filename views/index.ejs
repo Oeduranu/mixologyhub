@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MixologyHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/images/slide1.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    
+<!-- This is for the background-->
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
+<!-- End of the background section -->
+
+
+    <div class="container custom-container-top">
+      <!-- This custom-container is bc Bootstrap containers are small and I need to make it bigger and even bigger for small screens so I can use media querys  -->
+        
+
+       <!-- Here we have our logo with CSS to adjust it and an a so when it's clicked it goes to the main route -->
+      <a href="/"><div id="logo-container"><img src="/images/logo.png" id="logo"></div></a>
+
+
+            <form action="/search" id="myForm" method="POST" class="px-3">
+                        
+                <input type="text" id="idInput" name="search" autocomplete="off" placeholder="Name of a cocktail">
+                
+                
+                
+                <div class="slider">
+                    <div><img src="/images/slide1.svg"></div>
+                    <div><img src="/images/slide2.svg"></div>
+                    <div><img src="/images/slide3.svg"></div>
+
+                </div>
+                <button id="search" type="submit"> <img src="/images/search.svg"> </button>                    
+            </form> 
+
+<!--   //////////////////////////////////////////////////////////    -->
+
+</div>
+<!--  Here ends the first container section   -->
+
+
+
+
+
+
+
+  <% if (locals.data) { %> 
+
+
+    <% if (data.drinks && data.drinks.length > 0) { %>
+<!-- Here is in case whatever you look up DID bring anything up -->
+
+
+<% if (locals.route === '/') { %>
+    <!-- This is so this text is only shown when you access the / route but NOT the /search route -->
+    <div class="container p-1 my-0 text-center justify-content-center custom-container">
+    <p class="my-0 txt-random">Random cocktails for you</p>
+    </div>
+  <% } %>
+
+    <div class="row container backCards p-0 mt-2 justify-content-between custom-container">
+
+
+<% data.drinks.forEach(function(drink, index) { %>
+    <!-- We were having problems because strInstructionsIT has ' symbol, and JSON was ending the string when detecting that so we just replace it its HTML entity representation -->
+    <!--   (drink.strInstructionsIT || ''): This part of the line uses the logical OR (||) operator. The logical OR operator returns the value of its first operand if it's truthy. Otherwise, it returns the value of its second operand. In this case, if drink.strInstructionsIT is truthy (e.g., it's not null, undefined, or an empty string), then it will be used. If drink.strInstructionsIT is falsy, it will use an empty string '' instead. This line ensures that drink.strInstructionsIT is never null, undefined, or contains single quote characters ('). It sets it to an empty string if it's falsy and replaces any single quote characters with the HTML entity to avoid issues with HTML rendering. -->
+    
+    <% drink.strInstructionsIT = (drink.strInstructionsIT || '').replace(/'/g, '&#39;'); %>
+
+    <div class="card text-center py-4 pb-1 mb-1" data-cocktail='<%- JSON.stringify(drink) %>'> 
+      <img src="<%= drink.strDrinkThumb %>" width="90%">
+      <div class="pt-1"> <%= drink.strDrink %> </div>
+    </div>
+  <% }); %>
+
+
+
+
+  <!-- Modal for displaying cocktail details -->
+<div class="modal">
+    <div class="modal-content">
+        <span class="close my-0">&times;</span>
+        <img id="modal-cocktail-image" src="" alt="Cocktail Image" width="20%" class="pb-3">
+        <h2 class="pt-2" id="modal-cocktail-name"></h2>
+        <p id="modal-cocktail-description"></p>
+        <p class="bold-text">Ingredients:</p>
+        <ul id="modal-cocktail-ingredients" class="m-0 p-0"></ul>
+        <!-- Add more details here as needed -->
+    </div>
+</div>
+
+
+    </div>
+
+
+    <!-- Here is in case whatever you look up didn't bring anything up -->
+    <% } else { %>
+
+        <div class="container text-center my-0">No results found.</div>
+      
+      <% } %>
+
+
+
+            <% } else { %>
+
+          <!-- Here is in case you dont have data at all, first time u open the website, just to manage error if the API is not working, means there's no data coming -->    
+          <div class="container text-center my-0">Check the API.</div>
+
+
+            <% } %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+    
+    <script src="/functions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
