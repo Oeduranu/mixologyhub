@@ -264,6 +264,7 @@ input[type="number"] {
   .modal-content {
     width: 90%; /* Adjust the width of the modal content for small screens */
   }
+}
 
 
 .close {

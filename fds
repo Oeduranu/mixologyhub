@@ -1,0 +1,11 @@
+[33mcommit 3a33489985251fd6b78fe0c6f5034d8fe8c2d6b3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Oduran <oeduranu@hotmail.com>
+Date:   Mon Apr 15 19:51:21 2024 -0700
+
+    Added a media query for the modal content to be displayed better in phone screens
+
+[33mcommit 65621afe91e7e191bc60f444fb49399f960e004f[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Oduran <oeduranu@hotmail.com>
+Date:   Mon Apr 15 08:44:20 2024 -0700
+
+    First version of MixologyHub
