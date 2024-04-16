@@ -259,6 +259,13 @@ input[type="number"] {
   align-items: center; /* Align items vertically */
 }
 
+/* Media query for small screens (mobile phones) */
+@media (max-width: 576px) {
+  .modal-content {
+    width: 90%; /* Adjust the width of the modal content for small screens */
+  }
+
+
 .close {
   color: #aaa;
   font-size: 28px;
@@ -338,3 +345,4 @@ ul{
   max-width: 100%; /* Set maximum width to 100% */
   height: auto; /* Maintain aspect ratio */
 }
+
